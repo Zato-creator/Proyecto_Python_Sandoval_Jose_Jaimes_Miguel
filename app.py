@@ -1,6 +1,6 @@
 import modules.core as cr
 import modules.utils as ut
-import modules.contacts as ct
+import modules.crud_contacts as ct
 import modules.messages as ms
 
 if __name__ == "__main__":
