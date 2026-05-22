@@ -5,9 +5,9 @@ import json
 
 MI_BASE_DE_DATOS = None   # Base de datos Vacia 
 
-def NewFile(*param): # Creamos un archivo en json
-    with open(MI_BASE_DE_DATOS, "W") as wf:
-        json.dump(param[0],wf,ident=4)
+def NewFile(data):
+    with open(MI_BASE_DE_DATOS, "w") as wf:
+        json.dump(data, wf, indent=4) # Corregido indent
 
 
 def  ReadFile():

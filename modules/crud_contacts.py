@@ -27,32 +27,51 @@ def registrar (lista_contactos): # esta funcion resgistra o crea al usuario o em
         "contraseña": contrasena
     }
 
-    lista_contactos[nombre] = contactos #agregar el nuevo contacto a la lista de diccionarios.
-    
+    lista_contactos["contactos"][nombre] = contactos #agregar el nuevo contacto a la lista de diccionarios.
     cr.AddData(lista_contactos)
+
     print("Contacto agregado exitosamente")
     print(f"Contacto agregado: {nombre} {apellido}, numero de identificacion: {num_identificacion}, numero de telefono: {telefono}, e-mail: {email}, direccion de residencia: {direccion}, su rol en la empresa: {rol} y su contraseña: {contraseña} ")
     ut.pausar_pantalla()
 
-def consultar (lista_contactos): # muestra la lista de todos los contactos con su respectiva información 
+def consultar(data): # 'data' debe ser el diccionario completo cargado desde agenda.json
     ut.borrar_pantalla()
-    print("Lista de contactos")
-    for i, (nombre, contacto) in enumerate(lista_contactos.items()):
-        print(f"{i+1}. {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contrasena"]}")
-
+    print("--- LISTA DE CONTACTOS ---")
     
-def buscar (lista_contactos):
+    # ACCESO CORRECTO: Entramos a la llave "contactos"
+    lista = data.get("contactos", {"nombre"})
+    
+    if not lista:
+        print("No hay contactos registrados.")
+    else:
+        # Aquí 'lista' es un diccionario: {'Jose': {...}, 'Maria': {...}}
+        for id_contacto, info in lista.items():
+            print(f"ID: {id_contacto} | Nombre: {info.get('nombres')} | Tel: {info.get('telefono')}")
+    
+    ut.pausar_pantalla()
+    
+def buscar(lista_contactos):
     ut.borrar_pantalla()
     print("Buscar contacto")
-    nombre = input("Ingresa el nombre del contacto que deseas buscar: ").lower()
-    if nombre in lista_contactos:
-        contacto = lista_contactos[nombre]
-        print(f"contacto encontrado: {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contrasena"]} ") 
-        ut.pausar_pantalla()
-        return nombre
-    else:
-        print("Contacto no encontrado")
-        ut.pausar_pantalla()
+    nombre_buscado = input("Ingresa el nombre del contacto: ").lower().strip() # .strip() quita espacios extras
+    
+    encontrado = False
+    for nombre_json, datos in lista_contactos.items():
+        # Ignoramos las llaves que no son contactos
+        if nombre_json in ["usuarios", "contactos"]:
+            continue
+        
+        # Comparamos si el nombre buscado está dentro del nombre del JSON
+        if nombre_buscado in nombre_json.lower().strip():
+            print(f"\nContacto encontrado: {nombre_json}")
+            print(f"Datos: {datos}")
+            encontrado = True
+            break # Detiene la búsqueda al encontrar el primero
+            
+    if not encontrado:
+        print("Contacto no encontrado.")
+    
+    ut.pausar_pantalla()
 
 def actualizar (lista_contactos):
     nombre = buscar(lista_contactos)
@@ -62,9 +81,9 @@ def actualizar (lista_contactos):
     nombre = ut.pedir_texto_obligatorio("Ingrese el nombre: ")
     apellido = ut.pedir_texto_obligatorio("Ingrese el apellido: ")
     telefono = ut.pedir_numero_obligatorio("Ingrese su numero celular/telefono: ")
-    email = input("Ingresa el correo electronico: ").lower()
-    direccion=input("Ingresa la direccion de residencia actual: ").lower()
-    rol = ut.pedir_rol("Ingresa el rol (admin / operario): ")
+    email = ut.pedir_texto_obligatorio("Ingresa el correo electronico: ")
+    direccion = ut.pedir_texto_obligatorio("Ingresa la direccion de residencia actual: ")
+    rol = ut.pedir_texto_obligatorio("Ingresa el rol (admin / operario):" )
     contrasena = ut.pedir_numero_obligatorio("Ingresa la contraseña, debe ser de facil recordación y de 4 caracteres numericos: ")
 
     contacto = {

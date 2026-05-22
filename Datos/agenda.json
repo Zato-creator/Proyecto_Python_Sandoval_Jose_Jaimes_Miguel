@@ -4,40 +4,41 @@
             "id": "0000",
             "nombres": "Admin",
             "apellidos": "Administrador",
-            "tel\u00c3\u00a9fono": "555 000111",
+            "telefono": "555 000111",
             "correo electronico": "admin@acmesolutions.com",
             "direccion": "Cl 185 # 26 \u00e2\u20ac\u201c 85",
             "contrasena": "admin123",
-            "rol": "administrador"
+            "rol": "admin"
         }
     ],
-    "contactos": [],
-    "jose miguel": {
-        "id": 12345,
-        "nombre": "jose miguel",
-        "apellido": "sandoval jaimes",
-        "telefono": 3208670349,
-        "correo electr\u00f3nico": "josesan_89@",
-        "direccion": "calle falsa 123",
-        "rol": "administrador",
-        "contrase\u00f1a": "12345"
+    "contactos": {
+        "carme": {
+            "id": "12345",
+            "nombre": "carme",
+            "apellido": "villalobos",
+            "telefono": "32087637",
+            "correo electr\u00f3nico": "josesan_89",
+            "direccion": "calle  35 numero 6",
+            "rol": "operario",
+            "contrase\u00f1a": "1234"
+        },
+        "carmen": {
+            "id": "456787",
+            "nombre": "carmen",
+            "apellido": "genesis",
+            "telefono": "3123123123",
+            "correo electr\u00f3nico": "carmen@fgafa",
+            "direccion": "calle falsa 345",
+            "rol": "operario",
+            "contrase\u00f1a": "12345"
+        }
     },
-    "jose ": {
-        "id": 123456,
-        "nombre": "jose ",
-        "apellido": "miguel",
-        "telefono": 3208670349,
-        "correo electr\u00f3nico": "josernoaoqa",
-        "direccion": "calle falsa 123",
-        "rol": "usuario",
-        "contrase\u00f1a": "1234"
-    },
-    "jose": {
-        "id": "12313123",
-        "nombre": "jose",
-        "apellido": "sandoval",
-        "telefono": "31312312",
-        "correo electr\u00f3nico": "josesan",
+    "Jose Miguel": {
+        "id": "1234",
+        "nombre": "Jose Miguel",
+        "apellido": "Sandoval Jaimes",
+        "telefono": "32089670349",
+        "correo electr\u00f3nico": "josesan_89@hotmail.com",
         "direccion": "calle falsa 123",
         "rol": "admin",
         "contrase\u00f1a": "1234"
