@@ -16,7 +16,7 @@ def  ReadFile():
 
 def CheckFile(*param): # Verificar archivo json
     data = list(param)
-    if(os.path.isfile(MI_BASE_DE_DATOS)): # Si ya existe lo lee
+    if(os.path.isfile(MI_BASE_DE_DATOS, "r")): # Si ya existe lo lee
         if(len(param)):
             data[0].update(ReadFile())
     else: # Si no existe lo crea
