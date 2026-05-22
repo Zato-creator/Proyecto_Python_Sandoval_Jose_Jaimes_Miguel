@@ -6,27 +6,28 @@ def registrar (lista_contactos): # esta funcion resgistra o crea al usuario o em
     ut.borrar_pantalla()
 
     print("Registrar contacto usuarios administradores")
-    num_identificacion = int(input ("Ingresa el nu"))
-    nombre = input("Ingrese el nombre: ").lower()
-    apellido = input("Ingrese el apellido:").lower()
-    telefono = int(input("Ingrese su numero celular/telefono: "))
-    email = input("Ingresa el correo electronico: ").lower()
-    direccion=input("Ingresa la direccion de residencia actual: ").lower()
-    rol = input("Ingresa el rol que el usuario desempeña, administrador, usuario, proveedor, cliente o persona interna: ").lower()
-    contraseña = input("Ingresa la contraseña, debe ser de facil recordación y de 4 caracteres numericos: ")
+    
+    num_identificacion = ut.pedir_numero_obligatorio("Ingresa el numero de identificacion: ")
+    nombre = ut.pedir_texto_obligatorio("Ingrese el nombre: ")
+    apellido = ut.pedir_texto_obligatorio("Ingrese el apellido: ")
+    telefono = ut.pedir_numero_obligatorio("Ingrese su numero celular/telefono: ")
+    email = ut.pedir_texto_obligatorio("Ingresa el correo electronico: ")
+    direccion = ut.pedir_texto_obligatorio("Ingresa la direccion de residencia actual: ")
+    rol = ut.pedir_texto_obligatorio("Ingresa el rol (admin / operario):" )
+    contrasena = ut.pedir_numero_obligatorio("Ingresa la contraseña, debe ser de facil recordación y de 4 caracteres numericos: ")
 
-    contacto = {
-        "num_identificacion": num_identificacion,
+    contactos= {
+        "id": num_identificacion,
         "nombre": nombre,
         "apellido": apellido,
         "telefono": telefono,
-        "email": email,  # este va a se|r predefinido como su usuario
+        "correo electrónico": email,  # este va a se|r predefinido como su usuario
         "direccion": direccion,
         "rol" : rol,
-        "contraseña": contraseña
+        "contraseña": contrasena
     }
 
-    lista_contactos[nombre] = contacto #agregar el nuevo contacto a la lista de diccionarios.
+    lista_contactos[nombre] = contactos #agregar el nuevo contacto a la lista de diccionarios.
     
     cr.AddData(lista_contactos)
     print("Contacto agregado exitosamente")
@@ -37,7 +38,7 @@ def consultar (lista_contactos): # muestra la lista de todos los contactos con s
     ut.borrar_pantalla()
     print("Lista de contactos")
     for i, (nombre, contacto) in enumerate(lista_contactos.items()):
-        print(f"{i+1}. {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contraseña"]}")
+        print(f"{i+1}. {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contrasena"]}")
 
     
 def buscar (lista_contactos):
@@ -46,7 +47,7 @@ def buscar (lista_contactos):
     nombre = input("Ingresa el nombre del contacto que deseas buscar: ").lower()
     if nombre in lista_contactos:
         contacto = lista_contactos[nombre]
-        print(f"contacto encontrado: {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contraseña"]} ") 
+        print(f"contacto encontrado: {nombre} {contacto["apellido"]} - {contacto["telefono"]} - {contacto["email"]} - {contacto["direccion"]} - {contacto["rol"]} - {contacto["contrasena"]} ") 
         ut.pausar_pantalla()
         return nombre
     else:
@@ -57,24 +58,24 @@ def actualizar (lista_contactos):
     nombre = buscar(lista_contactos)
     ut.borrar_pantalla()
     print("Actualizar contacto")
-    num_identificacion = int(input ("Ingresa el nu"))
-    nombre = input("Ingrese el nombre: ").lower()
-    apellido = input("Ingrese el apellido:").lower()
-    telefono = int(input("Ingrese su numero celular/telefono: "))
+    num_identificacion = ut.pedir_numero_obligatorio("Ingresa el numero de identificacion: ")
+    nombre = ut.pedir_texto_obligatorio("Ingrese el nombre: ")
+    apellido = ut.pedir_texto_obligatorio("Ingrese el apellido: ")
+    telefono = ut.pedir_numero_obligatorio("Ingrese su numero celular/telefono: ")
     email = input("Ingresa el correo electronico: ").lower()
     direccion=input("Ingresa la direccion de residencia actual: ").lower()
-    rol = input("Ingresa el rol que el usuario desempeña, administrador, usuario, proveedor, cliente o persona interna: ").lower()
-    contraseña = input("Ingresa la contraseña, debe ser de facil recordación y de 4 caracteres numericos: ")
+    rol = ut.pedir_rol("Ingresa el rol (admin / operario): ")
+    contrasena = ut.pedir_numero_obligatorio("Ingresa la contraseña, debe ser de facil recordación y de 4 caracteres numericos: ")
 
     contacto = {
-        "num_identificacion": num_identificacion,
+        "id": num_identificacion,
         "nombre": nombre,
         "apellido": apellido,
         "telefono": telefono,
-        "email": email,  # este va a se|r predefinido como su usuario
+        "correo electrónico": email,  # este va a se|r predefinido como su usuario
         "direccion": direccion,
         "rol" : rol,
-        "contraseña": contraseña
+        "contrasena": contrasena
     }
 
     lista_contactos[nombre] = contacto # Agrega el nuevo contacto al diccionario de la lista de contactos

@@ -16,10 +16,10 @@ if __name__ == "__main__":
     autenticado = False
     while not autenticado: # aca realizamos autenticacion de credenciales
         usuario = input("Digita el usuario (que es tu correo electronico): ").lower()
-        contraseña = input("Digita la contraseña")
+        contraseña = input("Digita la contraseña: ") 
         credenciales_correctas = False 
-        for llave, contacto in origen.items():
-            if contacto.get("email") == usuario and contacto.get("contraseña") == contraseña:
+        for contacto in origen["usuarios"]:
+            if contacto.get("correo electronico") == usuario and contacto.get("contrasena") == contraseña:
                 credenciales_correctas = True
                 break
         
