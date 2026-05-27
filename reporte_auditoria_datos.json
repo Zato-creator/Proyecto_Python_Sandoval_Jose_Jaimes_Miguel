@@ -1,0 +1,31 @@
+{
+    "usuarios_con_errores": [],
+    "contactos_con_errores": [
+        {
+            "id": "12345",
+            "errores": [
+                "El email no tiene un formato válido"
+            ]
+        },
+        {
+            "id": "456787",
+            "errores": [
+                "El email no tiene un formato válido"
+            ]
+        },
+        {
+            "id": "123456",
+            "errores": [
+                "El email no tiene un formato válido"
+            ]
+        }
+    ],
+    "Resumen": {
+        "total_usuarios": 1,
+        "total_contactos": 3,
+        "usuarios_con_errores": 0,
+        "contactos_con_errores": 3,
+        "usuarios_con_email_duplicado": 0,
+        "contactos_con_id_duplicado": 0
+    }
+}

@@ -6,7 +6,7 @@
             "apellidos": "Administrador",
             "telefono": "555 000111",
             "correo electronico": "admin@acmesolutions.com",
-            "direccion": "Cl 185 # 26 \u00e2\u20ac\u201c 85",
+            "direccion": "Cl 185 # 26 85",
             "contrasena": "admin123",
             "rol": "admin"
         }
@@ -17,20 +17,30 @@
             "nombre": "carme",
             "apellido": "villalobos",
             "telefono": "32087637",
-            "correo electr\u00f3nico": "josesan_89",
+            "correo electronico": "josesan_89",
             "direccion": "calle  35 numero 6",
             "rol": "operario",
-            "contrase\u00f1a": "1234"
+            "contrasena": "1234"
         },
         "carmen": {
             "id": "456787",
             "nombre": "carmen",
             "apellido": "genesis",
             "telefono": "3123123123",
-            "correo electr\u00f3nico": "carmen@fgafa",
+            "correo electronico": "carmen@fgafa",
             "direccion": "calle falsa 345",
             "rol": "operario",
-            "contrase\u00f1a": "12345"
+            "contrasena": "12345"
+        },
+        "21321": {
+            "id": "123456",
+            "nombre": "21321",
+            "apellido": "sandoval",
+            "telefono": "3145",
+            "correo electr\u00f3nico": "joopkmdkmkol",
+            "direccion": "casdknfl maklm jomslknl",
+            "rol": "operario",
+            "contrase\u00f1a": "123214"
         }
     },
     "Jose Miguel": {
@@ -38,9 +48,19 @@
         "nombre": "Jose Miguel",
         "apellido": "Sandoval Jaimes",
         "telefono": "32089670349",
-        "correo electr\u00f3nico": "josesan_89@hotmail.com",
+        "correo electronico": "josesan_89@hotmail.com",
         "direccion": "calle falsa 123",
         "rol": "admin",
-        "contrase\u00f1a": "1234"
+        "contrasena": "1234"
+    },
+    "e313": {
+        "id": "1312",
+        "nombre": "e313",
+        "apellido": "134",
+        "telefono": "21313",
+        "correo electr\u00f3nico": "fafafa",
+        "direccion": "fawsfe",
+        "rol": "admin",
+        "contrasena": "131231"
     }
 }

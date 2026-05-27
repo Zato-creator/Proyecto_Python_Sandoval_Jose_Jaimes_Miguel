@@ -38,7 +38,7 @@ def pedir_rol(mensaje):
     """Pide el rol del usuario y valida que sea estrictamente admin u operario."""
     while True:
         # Aquí usamos el parámetro 'mensaje' que viene de crud_contacts.py
-        rol = ut.pedir_texto_obligatorio(mensaje).lower() 
+        rol = pedir_texto_obligatorio(mensaje).lower()
         
         if rol in ["admin", "operario"]:
             return rol

@@ -5,6 +5,7 @@ Seleccione la opción a realizar:
 3. Buscar.
 4. Actualizar. 
 5. Eliminar contacto. 
+6. Auditar datos.
 0. Salir.
 """
 

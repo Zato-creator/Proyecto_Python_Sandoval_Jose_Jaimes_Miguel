@@ -2,11 +2,12 @@ import modules.core as cr
 import modules.utils as ut
 import modules.crud_contacts as ct
 import modules.messages as ms
+import modules.auditoria_datos as au  # importar el nuevo modulo
 
 if __name__ == "__main__":
 
     origen = {} # Variable donde guardamos los contactos
-    cr.MI_BASE_DE_DATOS = "Datos/agenda.json"# Ruta de ubicacion de la base de datros}
+    cr.MI_BASE_DE_DATOS = "Datos/agenda.json"# Ruta de ubicacion de la base de datros
     cr.CheckFile(origen) #  Verifica si el archivo de la base de datros existe si no lo crea
 
     print("Bienvenido a la gestor de contactos ACME")
@@ -53,13 +54,16 @@ if __name__ == "__main__":
                     ct.actualizar(origen)
                 case 5:
                     ct.eliminar_contacto(origen)
+                case 6:                     # NUEVA OPCIÓN A REALIZAR
+                    au.auditar_datos(origen)
                 case 0: 
                     print("Gracias por usar el gestor de contactos. ¡Hasta la proxima!")
                     isActive = False
                 case _:
                     print("Seleccion invalida. Intente nuevamente.")
                     ut.pausar_pantalla()
-        except: 
+        except ValueError:
             print("Error al ingresar el dato, debe ser un numero entero")
             ut.pausar_pantalla()
                 
+
